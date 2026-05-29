@@ -12,7 +12,7 @@ A web-based customer management application built with ASP.NET Core MVC, Entity 
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
 - [Database Setup](#database-setup)
-- [Running the-application](#running-the-application)
+- [Running the Application](#running-the-application)
 - [Project Structure](#project-structure)
 - [References](#references)
 - [Author](#author)
@@ -98,10 +98,13 @@ Before running the application, ensure you have the following installed:
 ```bash
 git clone https://github.com/YOUR_USERNAME/CustomerApp.git
 cd CustomerApp
-2. Restore Dependencies
+```
+
+### 2. Restore Dependencies
 cd CustomerApp.Web
 dotnet restore
-3. Configure the Connection String
+
+### 3. Configure the Connection String
 
 Open appsettings.json and update the connection string:
 
@@ -112,13 +115,15 @@ Open appsettings.json and update the connection string:
 }
 SQL Server Express Example
 Server=.\\SQLEXPRESS
-Database Setup
-Step 1 – Create the Database
+
+## Database Setup
+### Step 1 – Create the Database
 
 Open SSMS and run:
 
 CREATE DATABASE CustomerApp_DB;
-Step 2 – Create the Customers Table
+
+### Step 2 – Create the Customers Table
 USE CustomerApp_DB;
 
 CREATE TABLE Customers (
@@ -132,7 +137,8 @@ CREATE TABLE Customers (
     CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
     UpdatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE()
 );
-Step 3 – Seed Test Data (Optional)
+
+### Step 3 – Seed Test Data (Optional)
 INSERT INTO Customers
 (
     Name,
@@ -169,25 +175,32 @@ VALUES
 );
 
 SELECT * FROM Customers;
-Running the Application
-Run the Project
-# Clone the repository
+
+---
+
+## Running the Application
+
+#### Run the Project
+- Clone the repository
 git clone https://github.com/YOUR_USERNAME/CustomerApp.git
 
-# Navigate to the project directory
+#### Navigate to the project directory
 cd CustomerApp
 
-# Open in VS Code
+#### Open in VS Code
 code .
 
-# Restore dependencies
+#### Restore dependencies
 dotnet restore
 
-# Run the application
+#### Run the application
 dotnet run --project CustomerApp.Web
 Open in Browser
 https://localhost:5001
-Project Structure
+
+---
+
+## Project Structure
 CustomerApp.Web/
 │
 ├── Controllers/
@@ -214,7 +227,8 @@ CustomerApp.Web/
 │
 ├── appsettings.json
 └── Program.cs
-References
+
+## References
 Microsoft Documentation
 ASP.NET Core MVC Overview
 https://learn.microsoft.com/en-us/aspnet/core/mvc/overview
@@ -267,6 +281,7 @@ jQuery Validation CDN
 https://cdn.jsdelivr.net/npm/jquery-validation@1.20.0/dist/jquery.validate.min.js
 jQuery Validation Unobtrusive CDN
 https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@4.0.0/dist/jquery.validate.unobtrusive.min.js
-Author
 
+---
+## Author
 Anelisa Mkhize
