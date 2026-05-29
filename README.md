@@ -1,62 +1,101 @@
-CustomerApp – Customer Management System
+# CustomerApp – Customer Management System
 
 A web-based customer management application built with ASP.NET Core MVC, Entity Framework Core, and SQL Server. Developed as part of a practical assessment to demonstrate full-stack .NET development skills.
 
-Table of Contents
-Project Overview
-Features
-Technologies Used
-Prerequisites
-Getting Started
-Database Setup
-Running the Application
-Project Structure
-References
-Author
-Project Overview
+---
 
-CustomerApp is a web application that allows users to manage customer records through a clean and responsive interface.
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Database Setup](#database-setup)
+- [Running the-application](#running-the-application)
+- [Project Structure](#project-structure)
+- [References](#references)
+- [Author](#author)
+
+---
+
+## Project Overview
+
+CustomerApp is a customer management web application that allows users to manage customer records through a clean and responsive interface.
 
 Users can:
 
-Add customers
-Edit customer information
-Delete customers
-Search and filter customers
-View customer records in a paginated table
+- Add customers
+- Edit customer information
+- Delete customers
+- Search and filter customer records
+- View customers in a paginated table
 
 All data is stored in SQL Server using Entity Framework Core and queried using LINQ.
 
-Features
-View all customers in a sortable, paginated table (10 entries per page)
-Filter customers by name or VAT number
-Add new customers with full form validation
-Edit existing customer information
-Delete customers with a confirmation prompt
-Required field validation (Name and Address)
-Email format validation for contact person email
-Success and error feedback messages after actions
-Responsive Bootstrap UI
-Technologies Used
-Technology	Purpose
-ASP.NET Core MVC (.NET 8)	Web framework
-Entity Framework Core 8	ORM / Database access
-LINQ	Database querying
-SQL Server / LocalDB	Database
-Bootstrap 5.3	UI styling
-Bootstrap Icons	Icon library
-jQuery Validation	Client-side validation
-C#	Application logic
-Prerequisites
+---
 
-Before running the application, ensure you have:
+## Features
 
-.NET 8 SDK
-SQL Server, SQL Server Express, or LocalDB
-SQL Server Management Studio (SSMS)
-Visual Studio Code or Visual Studio
-Getting Started
-1. Clone the Repository
+### Customer Management
+
+- View all customers in a sortable and paginated table
+- Add new customer records
+- Edit existing customer information
+- Delete customer records with confirmation prompts
+
+### Search & Filtering
+
+- Filter customers by:
+  - Customer name
+  - VAT number
+
+### Validation
+
+- Required field validation for:
+  - Name
+  - Address
+- Email format validation for contact person email
+
+### User Experience
+
+- Success and error feedback messages
+- Responsive Bootstrap interface
+- Clean and user-friendly layout
+
+---
+
+## Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| ASP.NET Core MVC (.NET 8) | Web framework |
+| Entity Framework Core 8 | ORM / Database access |
+| LINQ | Database querying |
+| SQL Server / LocalDB | Database |
+| Bootstrap 5.3 | UI styling |
+| Bootstrap Icons | Icon library |
+| jQuery Validation | Client-side validation |
+| C# | Application logic |
+
+---
+
+## Prerequisites
+
+Before running the application, ensure you have the following installed:
+
+- .NET 8 SDK
+- SQL Server, SQL Server Express, or LocalDB
+- SQL Server Management Studio (SSMS)
+- Visual Studio Code or Visual Studio
+
+---
+
+## Getting Started
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/YOUR_USERNAME/CustomerApp.git
 cd CustomerApp
 2. Restore Dependencies
@@ -135,7 +174,7 @@ Run the Project
 # Clone the repository
 git clone https://github.com/YOUR_USERNAME/CustomerApp.git
 
-# Navigate to the project
+# Navigate to the project directory
 cd CustomerApp
 
 # Open in VS Code
@@ -179,7 +218,7 @@ References
 Microsoft Documentation
 ASP.NET Core MVC Overview
 https://learn.microsoft.com/en-us/aspnet/core/mvc/overview
-Entity Framework Core - Getting Started
+Entity Framework Core – Getting Started
 https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app
 Scaffolding a DbContext and Models
 https://learn.microsoft.com/en-us/ef/core/managing-schemas/scaffolding
