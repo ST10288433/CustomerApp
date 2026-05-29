@@ -6,16 +6,16 @@ A web-based customer management application built with ASP.NET Core MVC, Entity 
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Database Setup](#database-setup)
-- [Running the Application](#running-the-application)
-- [Project Structure](#project-structure)
-- [References](#references)
-- [Author](#author)
+* [Project Overview](#project-overview)
+* [Features](#features)
+* [Technologies Used](#technologies-used)
+* [Prerequisites](#prerequisites)
+* [Getting Started](#getting-started)
+* [Database Setup](#database-setup)
+* [Running the Application](#running-the-application)
+* [Project Structure](#project-structure)
+* [References](#references)
+* [Author](#author)
 
 ---
 
@@ -25,11 +25,11 @@ CustomerApp is a customer management web application that allows users to manage
 
 Users can:
 
-- Add customers
-- Edit customer information
-- Delete customers
-- Search and filter customer records
-- View customers in a paginated table
+* Add customers
+* Edit customer information
+* Delete customers
+* Search and filter customer records
+* View customers in a paginated table
 
 All data is stored in SQL Server using Entity Framework Core and queried using LINQ.
 
@@ -39,44 +39,46 @@ All data is stored in SQL Server using Entity Framework Core and queried using L
 
 ### Customer Management
 
-- View all customers in a sortable and paginated table
-- Add new customer records
-- Edit existing customer information
-- Delete customer records with confirmation prompts
+* View all customers in a sortable and paginated table
+* Add new customer records
+* Edit existing customer information
+* Delete customer records with confirmation prompts
 
 ### Search & Filtering
 
-- Filter customers by:
-  - Customer name
-  - VAT number
+* Filter customers by:
+
+  * Customer name
+  * VAT number
 
 ### Validation
 
-- Required field validation for:
-  - Name
-  - Address
-- Email format validation for contact person email
+* Required field validation for:
+
+  * Name
+  * Address
+* Email format validation for contact person email
 
 ### User Experience
 
-- Success and error feedback messages
-- Responsive Bootstrap interface
-- Clean and user-friendly layout
+* Success and error feedback messages
+* Responsive Bootstrap interface
+* Clean and user-friendly layout
 
 ---
 
 ## Technologies Used
 
-| Technology | Purpose |
-|---|---|
-| ASP.NET Core MVC (.NET 8) | Web framework |
-| Entity Framework Core 8 | ORM / Database access |
-| LINQ | Database querying |
-| SQL Server / LocalDB | Database |
-| Bootstrap 5.3 | UI styling |
-| Bootstrap Icons | Icon library |
-| jQuery Validation | Client-side validation |
-| C# | Application logic |
+| Technology                | Purpose                |
+| ------------------------- | ---------------------- |
+| ASP.NET Core MVC (.NET 8) | Web framework          |
+| Entity Framework Core 8   | ORM / Database access  |
+| LINQ                      | Database querying      |
+| SQL Server / LocalDB      | Database               |
+| Bootstrap 5.3             | UI styling             |
+| Bootstrap Icons           | Icon library           |
+| jQuery Validation         | Client-side validation |
+| C#                        | Application logic      |
 
 ---
 
@@ -84,10 +86,10 @@ All data is stored in SQL Server using Entity Framework Core and queried using L
 
 Before running the application, ensure you have the following installed:
 
-- .NET 8 SDK
-- SQL Server, SQL Server Express, or LocalDB
-- SQL Server Management Studio (SSMS)
-- Visual Studio Code or Visual Studio
+* .NET 8 SDK
+* SQL Server, SQL Server Express, or LocalDB
+* SQL Server Management Studio (SSMS)
+* Visual Studio Code or Visual Studio
 
 ---
 
@@ -101,29 +103,45 @@ cd CustomerApp
 ```
 
 ### 2. Restore Dependencies
+
+```bash
 cd CustomerApp.Web
 dotnet restore
+```
 
 ### 3. Configure the Connection String
 
-Open appsettings.json and update the connection string:
+Open `appsettings.json` and update the connection string:
 
+```json
 {
   "ConnectionStrings": {
     "CustomerApp_DB": "Server=(localdb)\\mssqllocaldb;Database=CustomerApp_DB;Trusted_Connection=True;TrustServerCertificate=True;"
   }
 }
-SQL Server Express Example
+```
+
+### SQL Server Express Example
+
+```json
 Server=.\\SQLEXPRESS
+```
+
+---
 
 ## Database Setup
+
 ### Step 1 – Create the Database
 
 Open SSMS and run:
 
+```sql
 CREATE DATABASE CustomerApp_DB;
+```
 
 ### Step 2 – Create the Customers Table
+
+```sql
 USE CustomerApp_DB;
 
 CREATE TABLE Customers (
@@ -137,10 +155,12 @@ CREATE TABLE Customers (
     CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
     UpdatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE()
 );
+```
 
 ### Step 3 – Seed Test Data (Optional)
-INSERT INTO Customers
-(
+
+```sql
+INSERT INTO Customers (
     Name,
     Address,
     TelephoneNumber,
@@ -175,32 +195,42 @@ VALUES
 );
 
 SELECT * FROM Customers;
+```
 
 ---
 
 ## Running the Application
 
-#### Run the Project
-- Clone the repository
+### Run the Project
+
+```bash
+# Clone the repository
 git clone https://github.com/YOUR_USERNAME/CustomerApp.git
 
-#### Navigate to the project directory
+# Navigate to the project directory
 cd CustomerApp
 
-#### Open in VS Code
+# Open in VS Code
 code .
 
-#### Restore dependencies
+# Restore dependencies
 dotnet restore
 
-#### Run the application
+# Run the application
 dotnet run --project CustomerApp.Web
-Open in Browser
+```
+
+### Open in Browser
+
+```text
 https://localhost:5001
+```
 
 ---
 
 ## Project Structure
+
+```text
 CustomerApp.Web/
 │
 ├── Controllers/
@@ -227,61 +257,79 @@ CustomerApp.Web/
 │
 ├── appsettings.json
 └── Program.cs
-
-## References
-Microsoft Documentation
-ASP.NET Core MVC Overview
-https://learn.microsoft.com/en-us/aspnet/core/mvc/overview
-Entity Framework Core – Getting Started
-https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app
-Scaffolding a DbContext and Models
-https://learn.microsoft.com/en-us/ef/core/managing-schemas/scaffolding
-Connection Strings in Entity Framework Core
-https://learn.microsoft.com/en-us/ef/core/miscellaneous/connection-strings
-Model Validation in ASP.NET Core MVC
-https://learn.microsoft.com/en-us/aspnet/core/mvc/models/validation
-Tag Helpers in ASP.NET Core
-https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro
-Dependency Injection in ASP.NET Core
-https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
-TempData in ASP.NET Core MVC
-https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state#tempdata
-Introduction to LINQ Queries
-https://learn.microsoft.com/en-us/dotnet/csharp/linq/get-started/introduction-to-linq-queries
-Routing in ASP.NET Core
-https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing
-Anti-forgery Tokens in ASP.NET Core
-https://learn.microsoft.com/en-us/aspnet/core/security/anti-request-forgery
-Configuration in ASP.NET Core
-https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration
-Bootstrap & jQuery
-Bootstrap 5.3 Documentation
-https://getbootstrap.com/docs/5.3/getting-started/introduction
-Bootstrap Modal Component
-https://getbootstrap.com/docs/5.3/components/modal
-Bootstrap Tables
-https://getbootstrap.com/docs/5.3/content/tables
-Bootstrap Forms
-https://getbootstrap.com/docs/5.3/forms/overview
-Bootstrap Alerts
-https://getbootstrap.com/docs/5.3/components/alerts
-Bootstrap Navbar
-https://getbootstrap.com/docs/5.3/components/navbar
-Bootstrap Pagination
-https://getbootstrap.com/docs/5.3/components/pagination
-jQuery API Documentation
-https://api.jquery.com
-Bootstrap CDN
-https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
-Bootstrap Icons CDN
-https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css
-jQuery CDN
-https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
-jQuery Validation CDN
-https://cdn.jsdelivr.net/npm/jquery-validation@1.20.0/dist/jquery.validate.min.js
-jQuery Validation Unobtrusive CDN
-https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@4.0.0/dist/jquery.validate.unobtrusive.min.js
+```
 
 ---
+
+## References
+
+### Microsoft Documentation
+
+* ASP.NET Core MVC Overview
+  https://learn.microsoft.com/en-us/aspnet/core/mvc/overview
+
+* Entity Framework Core – Getting Started
+  https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app
+
+* Scaffolding a DbContext and Models
+  https://learn.microsoft.com/en-us/ef/core/managing-schemas/scaffolding
+
+* Connection Strings in Entity Framework Core
+  https://learn.microsoft.com/en-us/ef/core/miscellaneous/connection-strings
+
+* Model Validation in ASP.NET Core MVC
+  https://learn.microsoft.com/en-us/aspnet/core/mvc/models/validation
+
+* Tag Helpers in ASP.NET Core
+  https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro
+
+* Dependency Injection in ASP.NET Core
+  https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
+
+* TempData in ASP.NET Core MVC
+  https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state#tempdata
+
+* Introduction to LINQ Queries
+  https://learn.microsoft.com/en-us/dotnet/csharp/linq/get-started/introduction-to-linq-queries
+
+* Routing in ASP.NET Core
+  https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing
+
+* Anti-forgery Tokens in ASP.NET Core
+  https://learn.microsoft.com/en-us/aspnet/core/security/anti-request-forgery
+
+* Configuration in ASP.NET Core
+  https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration
+
+### Bootstrap & jQuery
+
+* Bootstrap 5.3 Documentation
+  https://getbootstrap.com/docs/5.3/getting-started/introduction
+
+* Bootstrap Modal Component
+  https://getbootstrap.com/docs/5.3/components/modal
+
+* Bootstrap Tables
+  https://getbootstrap.com/docs/5.3/content/tables
+
+* Bootstrap Forms
+  https://getbootstrap.com/docs/5.3/forms/overview
+
+* Bootstrap Alerts
+  https://getbootstrap.com/docs/5.3/components/alerts
+
+* Bootstrap Navbar
+  https://getbootstrap.com/docs/5.3/components/navbar
+
+* Bootstrap Pagination
+  https://getbootstrap.com/docs/5.3/components/pagination
+
+* jQuery API Documentation
+  https://api.jquery.com
+
+---
+
 ## Author
-Anelisa Mkhize
+
+**Anelisa Mkhize**
+
