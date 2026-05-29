@@ -125,19 +125,3 @@ public class CustomerController : Controller
     }
 }
 
-/// REFERENCES:
-/// Microsoft Docs (2026). Pagination, sorting, and filtering in ASP.NET Core. [online] Available at: https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page [Accessed 29 May 2026].
-/// 
-/// Microsoft (2026). C# 8.0 Switch Expressions. [online] Available at: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression [Accessed 29 May 2026].
-/// 
-/// Microsoft (2026). EF Core Pagination. [online] Available at: https://docs.microsoft.com/en-us/ef/core/querying/pagination [Accessed 29 May 2026].
-/// 
-/// Wikipedia (2025). Post-Redirect-Get Pattern. [online] Available at: https://en.wikipedia.org/wiki/Post/Redirect/Get [Accessed 29 May 2026].
-/// 
-/// Microsoft (2026). Best practices for DateTime in .NET. [online] Available at: https://docs.microsoft.com/en-us/dotnet/standard/datetime/choosing-between-datetime [Accessed 29 May 2026].
-/// 
-/// Microsoft (2026). TempData in ASP.NET Core. [online] Available at: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/app-state [Accessed 29 May 2026].
-/// 
-/// Microsoft (2026). Over-posting Attack. [online] Available at: https://docs.microsoft.com/en-us/aspnet/core/mvc/models/overposting [Accessed 29 May 2026].
-/// 
-/// Mozilla (2026). HTTP Methods. [online] Available at: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods [Accessed 29 May 2026].
