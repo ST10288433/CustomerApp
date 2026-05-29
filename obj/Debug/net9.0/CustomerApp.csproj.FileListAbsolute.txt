@@ -217,3 +217,4 @@ C:\Users\User\OneDrive\Desktop\CustomerAppMVC\CustomerApp\obj\Debug\net9.0\refin
 C:\Users\User\OneDrive\Desktop\CustomerAppMVC\CustomerApp\obj\Debug\net9.0\CustomerApp.pdb
 C:\Users\User\OneDrive\Desktop\CustomerAppMVC\CustomerApp\obj\Debug\net9.0\CustomerApp.genruntimeconfig.cache
 C:\Users\User\OneDrive\Desktop\CustomerAppMVC\CustomerApp\obj\Debug\net9.0\ref\CustomerApp.dll
+C:\Users\User\OneDrive\Desktop\CustomerAppMVC\CustomerApp\obj\Debug\net9.0\CustomerApp.sourcelink.json
