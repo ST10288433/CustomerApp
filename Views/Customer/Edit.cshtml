@@ -1,0 +1,53 @@
+@model CustomerApp.Models.Customer
+
+@{ 
+    ViewData["Title"] = "Edit Customer"; 
+}
+
+<h2>Edit Customer</h2>
+<div class="card p-4">
+    <form asp-action="Edit" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="CreatedAt" />
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="Name" class="form-label"></label> <span class="text-danger">*</span>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger small"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="Vatnumber" class="form-label"></label>
+                <input asp-for="Vatnumber" class="form-control" />
+                <span asp-validation-for="Vatnumber" class="text-danger small"></span>
+            </div>
+            <div class="col-12 mb-3">
+                <label asp-for="Address" class="form-label"></label> <span class="text-danger">*</span>
+                <textarea asp-for="Address" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Address" class="text-danger small"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="TelephoneNumber" class="form-label"></label>
+                <input asp-for="TelephoneNumber" class="form-control" />
+                <span asp-validation-for="TelephoneNumber" class="text-danger small"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="ContactPersonName" class="form-label"></label>
+                <input asp-for="ContactPersonName" class="form-control" />
+                <span asp-validation-for="ContactPersonName" class="text-danger small"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="ContactPersonEmail" class="form-label"></label>
+                <input asp-for="ContactPersonEmail" class="form-control" type="email" />
+                <span asp-validation-for="ContactPersonEmail" class="text-danger small"></span>
+            </div>
+        </div>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary ms-2">Update Customer</button>
+    </form>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

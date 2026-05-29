@@ -1,0 +1,131 @@
+@model CustomerApp.Models.CustomerListViewModel
+
+@{ 
+    ViewData["Title"] = "Customers"; 
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Customers</h2>
+    <a asp-action="Create" class="btn btn-primary">+ Add Customer</a>
+</div>
+
+<form method="get" asp-action="Index" class="row g-2 mb-3">
+    <input type="hidden" name="sortColumn"    value="@Model.SortColumn" />
+    <input type="hidden" name="sortDirection" value="@Model.SortDirection" />
+    <div class="col-md-4">
+        <input type="text" name="nameFilter" value="@Model.NameFilter"
+               class="form-control" placeholder="Filter by name..." />
+    </div>
+    <div class="col-md-4">
+        <input type="text" name="vatFilter" value="@Model.VATFilter"
+               class="form-control" placeholder="Filter by VAT number..." />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+        <a asp-action="Index" class="btn btn-outline-secondary ms-1">Clear</a>
+    </div>
+</form>
+
+<table class="table table-hover table-striped">
+    <thead class="table-primary">
+        <tr>
+            @{
+                string[] cols   = { "Name","Address","TelephoneNumber","ContactPersonName","ContactPersonEmail","VATNumber" };
+                string[] labels = { "Name","Address","Telephone","Contact Person","Email","VAT No." };
+                for (int i = 0; i < cols.Length; i++)
+                {
+                    <th>
+                        <a asp-action="Index"
+                           asp-route-sortColumn="@cols[i]"
+                           asp-route-sortDirection="@Model.GetSortDirection(cols[i])"
+                           asp-route-nameFilter="@Model.NameFilter"
+                           asp-route-vatFilter="@Model.VATFilter"
+                           asp-route-page="1"
+                           class="text-decoration-none text-dark">@labels[i]</a>
+                    </th>
+                }
+            }
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model.Customers)
+        {
+            <tr>
+                <td>@c.Name</td>
+                <td>@c.Address</td>
+                <td>@(c.TelephoneNumber ?? "—")</td>
+                <td>@(c.ContactPersonName ?? "—")</td>
+                <td>@(c.ContactPersonEmail ?? "—")</td>
+                <td>@(c.Vatnumber ?? "—")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@c.Id"
+                       class="btn btn-sm btn-outline-primary">Edit</a>
+                    <button class="btn btn-sm btn-outline-danger"
+                            data-bs-toggle="modal" data-bs-target="#delModal"
+                            data-id="@c.Id" data-name="@c.Name">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.TotalPages > 1)
+{
+    <nav><ul class="pagination">
+        @for (int p = 1; p <= Model.TotalPages; p++)
+        {
+            <li class="page-item @(p == Model.CurrentPage ? "active" : "")">
+                <a class="page-link" asp-action="Index"
+                   asp-route-page="@p"
+                   asp-route-nameFilter="@Model.NameFilter"
+                   asp-route-vatFilter="@Model.VATFilter"
+                   asp-route-sortColumn="@Model.SortColumn"
+                   asp-route-sortDirection="@Model.SortDirection">@p</a>
+            </li>
+        }
+    </ul></nav>
+}
+
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="delModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">Confirm delete</h5>
+                <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <strong id="delName"></strong>?
+            </div>
+            <div class="modal-footer">
+                <button data-bs-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                <form id="delForm" method="post">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    document.getElementById('delModal').addEventListener('show.bs.modal', e => {
+        const b = e.relatedTarget;
+        document.getElementById('delName').textContent = b.dataset.name;
+        document.getElementById('delForm').action = '/Customer/Delete/' + b.dataset.id;
+    });
+</script>
+}
+
+@*
+ REFERENCES:
+ Bootstrap. (2024). Bootstrap 5.3 - Forms. Available at: https://getbootstrap.com/docs/5.3/forms/overview [Accessed 29 May 2026].
+
+ Bootstrap. (2024). Bootstrap 5.3 - Pagination. Available at: https://getbootstrap.com/docs/5.3/components/pagination [Accessed 29 May 2026].
+ 
+ Bootstrap. (2024). Bootstrap 5.3 - Modal Component. Available at: https://getbootstrap.com/docs/5.3/components/modal [Accessed 29 May 2026].
+
+ Bootstrap. (2024). Bootstrap 5.3 - Alerts. Available at: https://getbootstrap.com/docs/5.3/components/alerts [Accessed 29 May 2026].
+*@
